@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    --font-mono: 'Roboto Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  }
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+/* Fallback for any lingering font-serif class to use clean Roboto headings */
+.font-serif {
+  font-family: var(--font-sans);
+  font-weight: 500;
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #090d12;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(72, 187, 120, 0.25);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(72, 187, 120, 0.45);
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: rgba(94, 207, 150, 0.22);
+  color: #f4f7f5;
+}
+
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Keep cards and controls quiet so the content feels authored, not generated. */
+.surface-border {
+  border-color: rgba(255, 255, 255, 0.08);
+}

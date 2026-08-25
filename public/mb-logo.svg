@@ -1,0 +1,28 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="100" cy="100" r="98" fill="#0c0e12" />
+  <circle cx="100" cy="100" r="95" stroke="#8c2b2b" stroke-width="2.5" />
+  <text x="38" y="124" fill="#FFFFFF" font-family="sans-serif, Arial, Helvetica" font-size="68" font-weight="900" letter-spacing="-2" text-anchor="middle">M</text>
+  <text x="162" y="124" fill="#FFFFFF" font-family="sans-serif, Arial, Helvetica" font-size="68" font-weight="900" letter-spacing="-2" text-anchor="middle">B</text>
+  <g fill="#FFFFFF">
+    <circle cx="91" cy="42" r="2.2" fill="#FFFFFF" />
+    <circle cx="90" cy="48" r="2.2" fill="#FFFFFF" />
+    <circle cx="91" cy="54" r="2.2" fill="#FFFFFF" />
+    <circle cx="93" cy="60" r="2.2" fill="#FFFFFF" />
+    <circle cx="107" cy="48" r="2" fill="#FFFFFF" />
+    <circle cx="107" cy="55" r="2" fill="#FFFFFF" />
+    <path d="M 95 38 C 93 40 94 62 96 64 L 104 64 C 106 62 106 43 103 38 C 99 36 96 36 95 38 Z" fill="#FFFFFF" />
+    <rect x="96" y="64" width="8" height="54" fill="#FFFFFF" />
+    <line x1="96" y1="72" x2="104" y2="72" stroke="#0c0e12" stroke-width="1" />
+    <line x1="96" y1="80" x2="104" y2="80" stroke="#0c0e12" stroke-width="1" />
+    <line x1="96" y1="88" x2="104" y2="88" stroke="#0c0e12" stroke-width="1" />
+    <line x1="96" y1="96" x2="104" y2="96" stroke="#0c0e12" stroke-width="1" />
+    <line x1="96" y1="104" x2="104" y2="104" stroke="#0c0e12" stroke-width="1" />
+    <line x1="96" y1="112" x2="104" y2="112" stroke="#0c0e12" stroke-width="1" />
+    <path d="M 96 118 C 90 114 84 102 82 106 C 80 110 84 122 83 130 C 81 142 84 156 93 162 C 97 165 103 165 107 162 C 116 156 119 142 117 130 C 116 122 120 110 118 106 C 116 102 110 114 104 118 Z" fill="#FFFFFF" />
+    <rect x="95" y="124" width="10" height="4" rx="1" fill="#0c0e12" />
+    <rect x="95" y="132" width="10" height="4" rx="1" fill="#0c0e12" />
+    <rect x="94" y="142" width="12" height="4" rx="0.5" fill="#0c0e12" />
+    <circle cx="111" cy="144" r="2" fill="#0c0e12" />
+    <circle cx="109" cy="151" r="2" fill="#0c0e12" />
+  </g>
+</svg>
