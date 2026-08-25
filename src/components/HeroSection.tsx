@@ -1,6 +1,5 @@
 import React from 'react';
 import { ArrowRight, FileText, Send, MapPin } from 'lucide-react';
-import { ProfilePortrait } from './ProfilePortrait';
 
 interface HeroSectionProps {
   onOpenResume: () => void;
@@ -92,7 +91,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
 
             <div className="relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#10161a] shadow-2xl shadow-black/30">
               <div className="aspect-[4/5] overflow-hidden bg-[#e7ebee]">
-                <ProfilePortrait className="h-full w-full object-cover" />
+                <img
+                  src="./images/midhun-photo.jpg"
+                  alt="Midhun Balaji"
+                  className="h-full w-full object-cover"
+                />
               </div>
 
               <div className="flex items-center justify-between gap-4 px-5 py-4 border-t border-white/10 bg-[#0d1317]">
