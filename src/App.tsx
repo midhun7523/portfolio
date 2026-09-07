@@ -8,7 +8,6 @@ import EducationSection from './components/EducationSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 
-// These IDs must match the wrappers below
 const sectionIds = ['hero', 'about', 'experience', 'projects', 'education', 'contact'];
 
 function App() {
@@ -16,7 +15,6 @@ function App() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Offset ensures it triggers before the section hits the very top
       const scrollPosition = window.scrollY + window.innerHeight / 3;
       
       for (let i = sectionIds.length - 1; i >= 0; i--) {
@@ -29,7 +27,7 @@ function App() {
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Set initial state on load
+    handleScroll(); 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -44,7 +42,6 @@ function App() {
   };
 
   return (
-    // Standard wrapper without any scroll-snapping classes
     <div className="relative min-h-screen bg-[#090d12] text-gray-200">
       <Navbar />
       
@@ -59,7 +56,7 @@ function App() {
 
       <Footer />
 
-      {/* Floating NEXT button on the bottom right */}
+      {/* --- THE NEXT BUTTON IS ADDED HERE --- */}
       {currentSectionIndex < sectionIds.length - 1 && (
         <button 
           onClick={scrollToNextSection}
