@@ -1,70 +1,75 @@
-import React, { useState } from 'react';
-import { Navbar } from './components/Navbar';
-import { HeroSection } from './components/HeroSection';
-import { AboutSection } from './components/AboutSection';
-import { SevaAiShowcase } from './components/SevaAiShowcase';
-import { ProjectsSection } from './components/ProjectsSection';
-import { CarbonCaptureExplorer } from './components/CarbonCaptureExplorer';
-import { EducationSection } from './components/EducationSection';
-import { ContactSection } from './components/ContactSection';
-import { Footer } from './components/Footer';
-import { SevaAiDemoModal } from './components/SevaAiDemoModal';
-import { ResumeModal } from './components/ResumeModal';
+import { useEffect, useState } from 'react';
+import Navbar from './components/Navbar';
+import HeroSection from './components/HeroSection';
+import AboutSection from './components/AboutSection';
+import ExperienceSection from './components/ExperienceSection';
+import ProjectsSection from './components/ProjectsSection';
+import EducationSection from './components/EducationSection';
+import ContactSection from './components/ContactSection';
+import Footer from './components/Footer';
 
-export default function App() {
-  const [sevaDemoOpen, setSevaDemoOpen] = useState<boolean>(false);
-  const [resumeOpen, setResumeOpen] = useState<boolean>(false);
+// These IDs must match the wrappers below
+const sectionIds = ['hero', 'about', 'experience', 'projects', 'education', 'contact'];
+
+function App() {
+  const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Offset ensures it triggers before the section hits the very top
+      const scrollPosition = window.scrollY + window.innerHeight / 3;
+      
+      for (let i = sectionIds.length - 1; i >= 0; i--) {
+        const element = document.getElementById(sectionIds[i]);
+        if (element && element.offsetTop <= scrollPosition) {
+          setCurrentSectionIndex(i);
+          break;
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Set initial state on load
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToNextSection = () => {
+    if (currentSectionIndex < sectionIds.length - 1) {
+      const nextId = sectionIds[currentSectionIndex + 1];
+      const element = document.getElementById(nextId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
 
   return (
-    <div className="min-h-screen bg-[#080c10] text-[#d4e8df] relative overflow-x-hidden font-sans">
-      {/* Subtle ambient background — intentionally kept simple and editorial. */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(circle_at_78%_18%,rgba(94,207,150,0.08),transparent_28%),radial-gradient(circle_at_15%_55%,rgba(255,255,255,0.025),transparent_30%)]"
-      />
-
-      {/* Fixed Navigation Header */}
-      <Navbar onOpenResume={() => setResumeOpen(true)} />
-
-      {/* Main Content Sections */}
-      <main id="main-content" className="relative z-10">
-        {/* Hero Section */}
-        <HeroSection onOpenResume={() => setResumeOpen(true)} />
-
-        {/* About Section */}
-        <AboutSection />
-
-        {/* Highlight Section: In-Page SEVA AI Diagnostic Simulator */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto z-10">
-          <SevaAiShowcase />
-        </section>
-
-        {/* Projects Section */}
-        <ProjectsSection onOpenSevaDemo={() => setSevaDemoOpen(true)} />
-
-        {/* Carbon Capture Computational Biology Deep Dive */}
-        <CarbonCaptureExplorer />
-
-        {/* Education & Academic Credentials */}
-        <EducationSection />
-
-        {/* Contact & Inquiry Section */}
-        <ContactSection />
+    // Standard wrapper without any scroll-snapping classes
+    <div className="relative min-h-screen bg-[#090d12] text-gray-200">
+      <Navbar />
+      
+      <main>
+        <div id="hero"><HeroSection /></div>
+        <div id="about"><AboutSection /></div>
+        <div id="experience"><ExperienceSection /></div>
+        <div id="projects"><ProjectsSection /></div>
+        <div id="education"><EducationSection /></div>
+        <div id="contact"><ContactSection /></div>
       </main>
 
-      {/* Global Footer */}
       <Footer />
 
-      {/* Global Modals */}
-      <SevaAiDemoModal
-        isOpen={sevaDemoOpen}
-        onClose={() => setSevaDemoOpen(false)}
-      />
-
-      <ResumeModal
-        isOpen={resumeOpen}
-        onClose={() => setResumeOpen(false)}
-      />
+      {/* Floating NEXT button on the bottom right */}
+      {currentSectionIndex < sectionIds.length - 1 && (
+        <button 
+          onClick={scrollToNextSection}
+          className="fixed bottom-8 right-8 z-50 px-6 py-2 bg-[rgba(72,187,120,0.1)] text-[#48bb78] border border-[rgba(72,187,120,0.2)] backdrop-blur-md font-mono text-sm tracking-wide rounded hover:bg-[rgba(72,187,120,0.2)] transition-all cursor-pointer"
+        >
+          Next &rarr;
+        </button>
+      )}
     </div>
   );
 }
+
+export default App;
