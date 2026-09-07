@@ -14,15 +14,14 @@ export const Footer: React.FC = () => {
       className="relative border-t border-[#5ecf96]/15 bg-[#080c10] py-12 px-4 sm:px-6 lg:px-8 z-10"
     >
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-        {/* Left branding */}
-        <div className="flex flex-col items-center md:items-start text-center md:text-left">
-          <div className="flex items-center gap-2.5 text-lg text-[#f0faf5]">
-            <div className="w-7 h-7 rounded-full border border-[#5ecf96]/40 flex items-center justify-center overflow-hidden bg-[#0c0e12]">
-              <MbGuitarLogo size={28} />
-            </div>
-            <span className="font-bold">{PERSONAL_INFO.name}</span>
+        {/* Left Branding */}
+        <div>
+          <div>
+            <span className="font-semibold text-lg tracking-tight text-[#e2f4ec] font-sans">
+              {PERSONAL_INFO.name}
+            </span>
           </div>
-          <p className="font-mono text-xs text-[#6e8c7e] mt-1">
+          <p className="text-xs font-normal tracking-wide text-[#6e8c7e] mt-1 font-sans opacity-90">
             © 2026 Midhun Balaji · Sri Sathya Sai Institute of Higher Learning, Puttaparthi
           </p>
         </div>
